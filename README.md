@@ -1,101 +1,55 @@
-# 💳 Astraw Cards Distribution System
+# 🌤️ Weather App
 
-A modern **Flutter + Firebase** application for managing and distributing digital Astraw cards between an admin and multiple distributors with custom pricing and wallet-based transactions.
-
----
-
-## 🚀 Project Overview
-
-This system allows:
-- Admin to upload and manage Astraw card codes
-- Distributors to purchase cards using their wallet balance
-- Custom pricing per distributor
-- Secure and real-time transactions using Firebase
+A simple and modern **Flutter Weather Application** that displays real-time weather information for any city using a weather API.
 
 ---
 
-## 🧩 Features
+## 🚀 Features
 
-### 👨‍💼 Admin Features
-- Upload card batches (5, 10, 20, 30, 40, 50, 100, 200, 300)
-- Manage distributors
-- Set custom prices per distributor
-- View system statistics
-
-### 🛒 Distributor Features
-- Login securely
-- View wallet balance
-- Buy cards instantly
-- View purchased card codes
-- Track transaction history
+- Search weather by city name
+- Display current temperature
+- Show weather condition (sunny, cloudy, rain, etc.)
+- Humidity and wind speed info
+- Dynamic UI based on weather state
+- Clean and responsive design
 
 ---
 
-## 🎯 Card Values Supported
+## 🧰 Tech Stack
 
-- 5
-- 10
-- 20
-- 30
-- 40
-- 50
-- 100
-- 200
-- 300
+- Flutter 💙
+- Dart
+- REST API (OpenWeatherMap or similar)
+- BLoC / Cubit (State Management)
 
 ---
 
-## ⚙️ Tech Stack
+## 📱 Screens
 
-### Frontend
-- Flutter (Material 3)
-- BLoC / Cubit State Management
-
-### Backend
-- Firebase Authentication
-- Cloud Firestore
-- Firebase Cloud Functions
+- Home Screen
+  - Search bar for city input
+  - Weather display card
+- Loading State
+- Error State (invalid city / network error)
 
 ---
 
-## 🗄️ Database Structure
+## 🔌 API Used
 
-- users → Admin & Distributors
-- cards → Card inventory
-- prices → Custom pricing per distributor
-- transactions → Purchase history
+This app uses a weather API such as:
 
----
-
-## 🔐 Security
-
-- Role-based access (Admin / Distributor)
-- Secure authentication via Firebase Auth
-- Firestore security rules
-- Prevent duplicate card usage
-- Atomic transactions using Cloud Functions
+- OpenWeatherMap API  
+(You need to add your API key in the project)
 
 ---
 
-## 📱 App Screens
-
-- Login Screen
-- Distributor Dashboard
-- Buy Cards Screen
-- Transactions Screen
-- Admin Panel
-- Upload Cards Screen
-
----
-
-## 📦 Installation
+## ⚙️ Installation
 
 ```bash
-git clone https://github.com/your-username/astraw-cards.git
-cd astraw-cards
+git clone https://github.com/your-username/weather-app.git
+cd weather-app
 flutter pub get
 flutter run
-
 ---
 📦 Project Structure
 lib/
