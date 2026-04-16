@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_app/cubits/cubit_get_weather/get_weather_cubit.dart';
+import 'package:weather_app/models/weathar_model.dart';
 
 class WeatherInfoBody extends StatelessWidget {
-  const WeatherInfoBody({Key? key}) : super(key: key);
-
+   const WeatherInfoBody({Key? key, required this.weatharModel}) : super(key: key);
+ final WeatharModel weatharModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -10,16 +13,18 @@ class WeatherInfoBody extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text(
-            'Alexandria',
-            style: TextStyle(
+           Text(
+
+              // weatharModel.cityName,
+              BlocProvider.of<GetWeatherCubit>(context).weatharModel!.cityName,
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 32,
             ),
           ),
-          const Text(
-            'updated at 23:46',
-            style: TextStyle(
+           Text(
+            weatharModel.date,
+            style:const TextStyle(
               fontSize: 24,
             ),
           ),
@@ -29,29 +34,40 @@ class WeatherInfoBody extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Image.asset(
-                'assets/images/cloudy.png',
+              Image.network(
+                weatharModel.image,
               ),
-              const Text(
-                '17',
-                style: TextStyle(
+               Text(
+                weatharModel.temp.toString(),
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: 32,
                 ),
               ),
-              const Column(
+               Column(
                 children: [
-                  Text(
-                    'Maxtemp: 24',
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
+                  Row(
+                    children: [
+                       Text(
+                        'Maxtemp:${weatharModel.maxTemp?.round()} ',
+                        style:const TextStyle(
+                          fontSize: 16,
+                        ),
+                      ),
+                       
+                    ],
                   ),
-                  Text(
-                    'Mintemp: 16',
-                    style: TextStyle(
-                      fontSize: 16,
-                    ),
+                  Row(
+                    children: [
+                      Text(
+                        'Mintemp:${weatharModel.mainTemp?.round()}',
+                        style:const TextStyle(
+                          fontSize: 16,
+                        ),
+                      ),
+                    
+                    
+                    ],
                   ),
                 ],
               ),
@@ -60,8 +76,8 @@ class WeatherInfoBody extends StatelessWidget {
           const SizedBox(
             height: 32,
           ),
-          const Text(
-            'Ligh Rain',
+           Text(
+            weatharModel.weatherCondition,
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 32,
@@ -72,3 +88,20 @@ class WeatherInfoBody extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
