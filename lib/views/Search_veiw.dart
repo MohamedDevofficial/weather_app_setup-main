@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/cubits/cubit_get_weather/get_weather_cubit.dart';
+import 'package:weather_app/widgets/getThemeColor.dart';
 
 class SearchVeiw extends StatelessWidget {
    SearchVeiw({Key? key}) : super(key: key);
@@ -12,7 +13,8 @@ class SearchVeiw extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Search City'),
+       // backgroundColor:getThemeColor(BlocProvider.of<GetWeatherCubit>(context).weatharModel?.weatherCondition),
+        title:  Text('Search City'),
         
       ),
      
